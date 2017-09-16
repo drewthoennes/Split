@@ -1,0 +1,19 @@
+{
+  "name": "splitserver",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/drewthoennes/SplitServer.git"
+  },
+  "author": "Elnard Utiushev",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/drewthoennes/SplitServer/issues"
+  },
+  "homepage": "https://github.com/drewthoennes/SplitServer#readme"
+}
