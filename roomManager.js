@@ -6,9 +6,10 @@ const Room = require('./room'),
 var router = express.Router();
 
 class RoomManager {
-  constructor() {
+  constructor(io) {
     this.rooms = []
     this.router = express.Router()
+    this.io = io
 
     this.router.get('/rooms/create', (req, res) => {
       res.json({
@@ -20,6 +21,12 @@ class RoomManager {
     this.router.get('/rooms/list', (req, res) => {
       res.json(this.list())
     })
+
+    this.io.on('connection', (socket) => {
+      socket.on('createRoom', () => {
+        this.io.to(socket.id).emit('roomCreated', this.createRoom())
+      })
+    })
   }
   createRoom() {
     let id = randomstring.generate({
@@ -27,7 +34,7 @@ class RoomManager {
       charset: 'alphabetic',
       capitalization: 'lowercase'
     })
-    let room = new Room(id)
+    let room = new Room(id, this.io)
     this.router.use('/room/' + id, room.router)
     this.rooms.push(room)
     console.log('Created new room ' + id)
