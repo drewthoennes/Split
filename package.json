@@ -18,12 +18,14 @@
   "homepage": "https://github.com/drewthoennes/SplitServer#readme",
   "dependencies": {
     "body-parser": "^1.18.1",
+    "cors": "^2.8.4",
     "express": "^4.15.4",
     "fluent-ffmpeg": "^2.1.2",
     "hls-server": "^1.2.2",
     "morgan": "^1.8.2",
     "randomstring": "^1.1.5",
     "socket.io": "^1.7.4",
-    "uuid": "^3.1.0"
+    "uuid": "^3.1.0",
+    "youtube-dl": "^1.11.1"
   }
 }

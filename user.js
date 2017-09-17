@@ -20,6 +20,7 @@ class User {
   prepareVideo(path) {
     this.stream.prepare(path, () => console.log('Finished'))
   }
+  
 }
 
 module.exports = User

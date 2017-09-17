@@ -26,7 +26,7 @@ class Scailer {
       let y = 0
 
       e.stream.settings.width = x2 - x
-      e.stream.settings.height = e.stream.settings.width/16*9//this.height * scale
+      e.stream.settings.height = this.width/16*9//this.height * scale
       e.stream.settings.x = x
       e.stream.settings.y = y
     })

@@ -14,7 +14,7 @@ class Stream {
     + this.settings.height + ':'
     + this.settings.x + ':'
     + this.settings.y + '"');
-    this.ffmpeg = ffmpeg(__dirname + '/static/countdown.mp4', { timeout: 432000 }).addOptions([
+    this.ffmpeg = ffmpeg(path, { timeout: 432000 }).addOptions([
       '-filter_complex crop='
       + this.settings.width + ':'
       + this.settings.height + ':'
@@ -26,6 +26,7 @@ class Stream {
       '-start_number 0',
       '-hls_time 10',
       '-hls_list_size 0',
+      // '-hls_flags delete_segments',
       '-f hls'
     ]).output('./stream/' + this.userId + '/output.m3u8').on('end', callback).run()
   }

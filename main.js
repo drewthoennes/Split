@@ -6,18 +6,20 @@ const express = require('express'),
   path = require('path'),
   morgan = require('morgan'),
   bodyParser = require('body-parser'),
-  HLSServer = require('hls-server')
+  HLSServer = require('hls-server'),
+  cors = require('cors')
 
 
 app.use(bodyParser.json())
 app.use(morgan('dev'))
+app.use(cors())
 
 io.on('connection', function(socket){
   console.log('New connection');
   socket.on('echo', (m) => {
     console.log(m)
   })
-});
+})
 
 const RoomManager = require('./roomManager')
 let rm = new RoomManager(io)
